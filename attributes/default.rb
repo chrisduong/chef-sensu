@@ -17,7 +17,7 @@ else
 end
 
 # installation
-default["sensu"]["version"] = "0.25.6-1"
+default["sensu"]["version"] = "0.26.3-1"
 default["sensu"]["use_unstable_repo"] = false
 default["sensu"]["log_level"] = "info"
 default["sensu"]["use_ssl"] = true
@@ -32,6 +32,7 @@ default["sensu"]["client_deregister_handler"] = nil
 default["sensu"]["apt_repo_url"] = "http://repositories.sensuapp.org/apt"
 default["sensu"]["yum_repo_url"] = "http://repositories.sensuapp.org"
 default["sensu"]["msi_repo_url"] = "http://repositories.sensuapp.org/msi"
+default["sensu"]["aix_package_root_url"] = "https://sensu.global.ssl.fastly.net/aix"
 default["sensu"]["add_repo"] = true
 
 # transport

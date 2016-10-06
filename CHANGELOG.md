@@ -5,6 +5,47 @@ cookbook. Please see HISTORY.md for changes from older versions of this project.
 
 ## [Unreleased]
 
+## [3.1.2] - 2016-09-29
+
+### Changes
+
+The `_enterprise_repo` recipe now configures yum repos for both `noarch`
+and `$basearch` so that `sensu-enterprise-dashboard` package can be installed.
+
+Due to upstream repository changes, the default value of
+`node['sensu']['enterprise-dashboard]['version']` has changed from
+`1:1.4.0-1` to `1.4.0-1`.
+
+## [3.1.0] - 2016-09-23
+
+### Changes
+
+The default version of Sensu installed by this cookbook is now 0.26.3-1.
+
+Eliminated resource cloning warnings when calling rabbitmq_credentials definition.
+
+Replaced librarian-chef with Berkshelf.
+
+Updated test-kitchen configuration for windows platforms.
+
+Updated metadata to depend on Chef >= 12.
+
+Updated dependencies for yum, apt and windows cookbooks to make sense for Chef >= 12.
+
+### Features
+
+Added support for AIX platform
+
+Added support for configuring SENSU_LOADED_TEMPFILE_DIR via `node["sensu"]["loaded_tempfile_dir"]`
+
+Added logic for detecting gem binary path on Windows platform
+
+### Fixes
+
+Using `baseurl` attribute for yum_repository instead of `url` property
+
+Fixed broken tests for availability of `sensitive` attribute
+
 ## [3.0.0] - 2016-08-09
 
 ### Important
@@ -113,6 +154,8 @@ Added helpers for storing key/value pairs which persist for duration of the Chef
 
 Allow "standard" as a value of type attribute on `sensu_check` resources, [as described in Sensu documentation](https://sensuapp.org/docs/0.21/checks).
 
-[Unreleased]: https://github.com/sensu/sensu-chef/compare/3.0.0...HEAD
+[Unreleased]: https://github.com/sensu/sensu-chef/compare/3.1.2...HEAD
+[3.1.2]: https://github.com/sensu/sensu-chef/compare/3.1.0...3.1.2
+[3.1.0]: https://github.com/sensu/sensu-chef/compare/3.0.0...3.1.0
 [3.0.0]: https://github.com/sensu/sensu-chef/compare/2.12.0...3.0.0
 [2.12.0]: https://github.com/sensu/sensu-chef/compare/2.11.0...2.12.0

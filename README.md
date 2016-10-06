@@ -28,11 +28,11 @@ See CODE_OF_CONDUCT.md, CONTRIBUTING.md and TESTING.md documents.
 * RHEL and derivatives
 * Fedora
 * Windows
+* AIX
 
 ### Chef
 
 * Chef 12+
-* Earlier versions of Chef (e.g. Chef 11) may work but are not actively supported.
 
 ### Cookbooks
 
@@ -198,6 +198,8 @@ Sensu services, "sysv" and "runit" are currently supported.
 
 `node["sensu"]["service_max_wait"]` - How long service scripts should wait
 for Sensu to start/stop.
+
+`node["sensu"]["loaded_tempfile_dir"]` - Where Sensu stores temporary files. Set a persistent directory if you use hardened system that cleans temporary directory regularly.
 
 ### Windows
 
