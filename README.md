@@ -193,9 +193,6 @@ Default "sensu".
 `node["sensu"]["use_embedded_ruby"]` - If Sensu Ruby handlers and plugins
 use the embedded Ruby in the Sensu package (default: true).
 
-`node["sensu"]["init_style"]` - Style of init to be used when configuring
-Sensu services, "sysv" and "runit" are currently supported.
-
 `node["sensu"]["service_max_wait"]` - How long service scripts should wait
 for Sensu to start/stop.
 
@@ -261,7 +258,11 @@ Adjusting the value of `dotnet_major_version` attribute will influence which
 
 `node["sensu"]["enterprise"]["heap_size"]` - Configure Sensu Enterprise heap size
 
+`node["sensu"]["enterprise"]["heap_dump_path"]` - Configure path where Sensu Enterprise will store heap dumps. Directory path will be managed by Chef. Honored by Enterprise version 2.0.0 and newer.
+
 `node["sensu"]["enterprise"]["java_opts"]` - Specify additional Java options when running Sensu Enterprise
+
+`node["sensu"]["enterprise"]["max_open_files"]` - Specify maxiumum number of file handles. Honored by Enterprise version 1.7.2 and newer.
 
 ## Custom Resources (LWRPs)
 
@@ -313,6 +314,11 @@ end
 ```ruby
 sensu_filter "environment" do
   attributes(:client => {:environment => "development"})
+  days(
+    :all => [{ :begin => "05:00 PM", :end => "09:00 AM" }}],
+    :saturday => [{ :begin => "09:00 AM", :end => "05:00 PM" }],
+    :sunday => [{ :begin => "09:00 AM", :end => "05:00 PM" }]
+  )
   negate true
 end
 ```
